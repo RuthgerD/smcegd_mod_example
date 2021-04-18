@@ -12,7 +12,7 @@ func _ready() -> void:
 var balls: Array = []
 
 func _on_timeout() -> void:
-	var ball: RigidBody = preload("res://src/environments/example/ball.tscn").instance()
+	var ball: RigidBody = preload("res://src/environments/example/square.tscn").instance()
 	add_child(ball)
 	
 	var rand_vec: Vector3 = Vector3(rand_range(0,10),rand_range(0,10),rand_range(0,10))
@@ -22,3 +22,7 @@ func _on_timeout() -> void:
 	balls.push_back(ball)
 	if balls.size() > max_balls:
 		balls.pop_front().queue_free()
+
+
+func init_cam_pos() -> Basis:
+	return $Camera.global_transform
