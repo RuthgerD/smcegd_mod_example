@@ -26,3 +26,13 @@ func _on_timeout() -> void:
 
 func init_cam_pos() -> Basis:
 	return $Camera.global_transform
+
+func get_spawn_position(hint: String) -> Transform:
+	var gt = global_transform
+	
+	gt.origin.y += 3.0
+	
+	gt.origin.x += rand_range(-8.0, 8.0)
+	gt.origin.z += rand_range(-8.0, 8.0)
+	
+	return gt
